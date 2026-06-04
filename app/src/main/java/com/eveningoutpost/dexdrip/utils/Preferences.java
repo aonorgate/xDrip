@@ -1172,6 +1172,7 @@ public class Preferences extends BasePreferenceActivity implements SearchPrefere
 
             profile_insulin_sensitivity_default = findPreference("profile_insulin_sensitivity_default");
             profile_carb_ratio_default = findPreference("profile_carb_ratio_default");
+            bindPreferenceSummaryToValue(findPreference("carblookup_food_db_source"));
             refreshProfileRatios();
 
             nfc_expiry_days = findPreference("nfc_expiry_days");

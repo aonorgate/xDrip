@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="4dp">
+
+                <TextView
+                    android:id="@+id/productNameTextView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/carbsResultTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/carbsHighlight"
+                    android:text="@string/carblookup_carbs_zero_decimal"/>
+
+                <TextView
+                    android:id="@+id/favoriteUseCountTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+                <ImageButton
+                    android:id="@+id/resetFavoriteUseCountButton"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/carblookup_reset_used_count"
+                    android:src="@drawable/ic_close_white"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/brandTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:paddingBottom="4dp"/>
+
+            <TextView
+                android:id="@+id/carbsPer100gTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:paddingBottom="4dp"/>
+
+            <TextView
+                android:id="@+id/servingSizeTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:visibility="gone"
+                android:paddingBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/lookupSourceTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@android:color/darker_gray"
+                android:visibility="gone"
+                android:paddingBottom="6dp" />
+
+            <TextView
+                android:id="@+id/nutritionWarningTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="13sp"
+                android:textColor="@android:color/holo_orange_dark"
+                android:visibility="gone"
+                android:paddingBottom="8dp" />
+
+            <LinearLayout
+                android:id="@+id/manualEntryLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/carblookup_manual_entry_prompt"/>
+
+                <EditText
+                    android:id="@+id/manualProductNameEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="@string/carblookup_manual_product_name_hint"
+                    android:inputType="textCapSentences"/>
+
+                <EditText
+                    android:id="@+id/manualBrandEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/carblookup_manual_brand_hint"
+                    android:inputType="textCapSentences"/>
+
+                <EditText
+                    android:id="@+id/manualCarbsPer100gEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/carblookup_carbs_per_100g_hint"
+                    android:inputType="numberDecimal"/>
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/portionGramsEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/carblookup_portion_size_hint"
+                android:inputType="numberDecimal"/>
+
+            <LinearLayout
+                android:id="@+id/portionSuggestionLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <Button
+                    android:id="@+id/smallPortionButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:insetLeft="0dp"
+                    android:insetRight="0dp"
+                    android:minHeight="40dp"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/mediumPortionButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:insetLeft="0dp"
+                    android:insetRight="0dp"
+                    android:minHeight="40dp"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/largePortionButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:insetLeft="0dp"
+                    android:insetRight="0dp"
+                    android:minHeight="40dp"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:paddingTop="8dp">
+
+        <Button
+            android:id="@+id/addToMealButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            android:insetLeft="0dp"
+            android:insetRight="0dp"
+            android:text="@string/carblookup_add_to_meal" />
+
+        <Button
+            android:id="@+id/saveToFavoritesButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorPrimary"
+            android:insetLeft="0dp"
+            android:insetRight="0dp"
+            android:text="@string/carblookup_save_to_favorites"
+            android:layout_marginTop="4dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

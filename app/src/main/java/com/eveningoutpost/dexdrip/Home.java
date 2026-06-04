@@ -468,6 +468,8 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
         this.btnUndo = (ImageButton) findViewById(R.id.btnUndo);
         this.btnRedo = (ImageButton) findViewById(R.id.btnRedo);
         this.btnVehicleMode = (ImageButton) findViewById(R.id.vehicleModeButton);
+        ImageButton carbLookupButton = (ImageButton) findViewById(R.id.carbLookupButton);
+        carbLookupButton.setOnClickListener(v -> openCarbLookup());
 
         hideAllTreatmentButtons();
 
@@ -3668,13 +3670,16 @@ public class Home extends ActivityWithMenu implements ActivityCompat.OnRequestPe
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        /*// jamorham additions
-        if (item.getItemId() == R.id.synctreatments) {
-            startActivity(new Intent(this, GoogleDriveInterface.class));
+        if (item.getItemId() == R.id.action_carb_lookup) {
+            openCarbLookup();
             return true;
-
-        }*/
+        }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void openCarbLookup() {
+        startActivity(new Intent(this,
+                com.eveningoutpost.dexdrip.carblookup.CarbLookupActivity.class));
     }
 
     public void initializeGraphicTrendArrow() {

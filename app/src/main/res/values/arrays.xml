@@ -166,6 +166,22 @@
         <item>mmol</item>
     </string-array>
 
+    <string-array name="carblookupFoodDbSourceEntries">
+        <item>Open Food Facts - World / Europe</item>
+        <item>Open Food Facts - United States</item>
+        <item>Open Food Facts - United Kingdom</item>
+        <item>Open Food Facts - France</item>
+        <item>Open Food Facts - Germany</item>
+    </string-array>
+
+    <string-array name="carblookupFoodDbSourceValues">
+        <item>off_world</item>
+        <item>off_us</item>
+        <item>off_uk</item>
+        <item>off_fr</item>
+        <item>off_de</item>
+    </string-array>
+
     <!--     make sure to keep this values in sync with AlertPlayer.getAlertProfile -->
     <string-array name="BgAlertProfileEntries">
         <item>@string/volume_profile_high</item>

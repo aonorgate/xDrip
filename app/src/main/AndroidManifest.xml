@@ -207,6 +207,63 @@
                 <category android:name="android.intent.category.MULTIWINDOW_LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- CarbLookup module activities -->
+        <activity
+            android:name=".carblookup.CarbLookupActivity"
+            android:label="@string/carblookup_title"
+            android:exported="false" />
+
+        <activity
+            android:name=".carblookup.ProductDetailActivity"
+            android:label="@string/carblookup_product_details"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".carblookup.FoodSearchActivity"
+            android:label="@string/carblookup_title_item_search"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".carblookup.MealHistoryActivity"
+            android:label="@string/carblookup_saved_meals"
+            android:exported="false" />
+
+        <activity
+            android:name=".carblookup.MealDetailActivity"
+            android:label="@string/carblookup_meal_details"
+            android:exported="false" />
+
+        <activity
+            android:name=".carblookup.RecipeListActivity"
+            android:label="@string/carblookup_my_recipes"
+            android:exported="false" />
+
+        <activity
+            android:name=".carblookup.RecipeEditActivity"
+            android:label="@string/carblookup_edit_recipe"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".carblookup.RecipeDetailActivity"
+            android:label="@string/carblookup_recipe"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".carblookup.FavoriteItemsActivity"
+            android:label="@string/carblookup_favorites"
+            android:exported="false" />
+
+        <activity
+            android:name=".carblookup.CarbLookupCaptureActivity"
+            android:screenOrientation="fullSensor"
+            android:exported="false"
+            tools:replace="android:screenOrientation" />
+
         <activity
             android:name="net.openid.appauth.RedirectUriReceiverActivity"
             android:exported="true"

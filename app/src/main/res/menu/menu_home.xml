@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/action_carb_lookup"
+        android:title="@string/carblookup_title"
+        android:orderInCategory="100"
+        android:showAsAction="never"/>
+
     <item android:id="@+id/showhelp"
         android:title="@string/show_help"
         android:checkable="false"

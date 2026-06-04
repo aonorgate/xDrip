@@ -379,6 +379,7 @@ dependencies {
     androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-idling-resource:3.1.0'
+    androidTestImplementation 'net.sf.kxml:kxml2:2.3.0'
     // add this for intent mocking support
     //androidTestImplementation 'com.android.support.test.espresso:espresso-intents:3.0.1'
     // add this for webview testing support
@@ -398,6 +399,65 @@ tasks.withType(Test) {
         exceptionFormat "full"
         events "started", "skipped", "passed", "failed"
         showStandardStreams true
+    }
+}
+
+def resolveAdbExecutable() {
+    def sdkDir = getLocalProperty('sdk.dir')
+    if (!sdkDir) {
+        throw new GradleException("sdk.dir is not configured; cannot locate adb")
+    }
+    def adbName = System.properties['os.name'].toLowerCase(Locale.US).contains('windows') ? 'adb.exe' : 'adb'
+    def adbFile = file("${sdkDir}/platform-tools/${adbName}")
+    if (!adbFile.exists()) {
+        throw new GradleException("adb was not found at ${adbFile}")
+    }
+    return adbFile.absolutePath
+}
+
+def resolveConnectedDeviceSerial(String adbPath) {
+    if (project.hasProperty('androidSerial') && project.property('androidSerial')) {
+        return project.property('androidSerial').toString()
+    }
+
+    def output = new ByteArrayOutputStream()
+    exec {
+        commandLine adbPath, 'devices'
+        standardOutput = output
+    }
+
+    def devices = output.toString()
+            .readLines()
+            .collect { it.trim() }
+            .findAll { it && !it.startsWith('List of devices attached') }
+            .collect { it.split(/\s+/) }
+            .findAll { it.length >= 2 && it[1] == 'device' }
+            .collect { it[0] }
+
+    if (devices.size() != 1) {
+        throw new GradleException("Expected exactly one connected device/emulator or pass -PandroidSerial=<serial>. Found: ${devices}")
+    }
+
+    return devices[0]
+}
+
+tasks.register('runCarbcalcFastDebugAndroidTest') {
+    group = 'verification'
+    description = 'Installs fastDebug app/test APKs and runs only carbcalc instrumented tests on a connected device or emulator.'
+    dependsOn 'installFastDebug', 'installFastDebugAndroidTest'
+
+    doLast {
+        def adbPath = resolveAdbExecutable()
+        def serial = resolveConnectedDeviceSerial(adbPath)
+
+        exec {
+            commandLine adbPath,
+                    '-s', serial,
+                    'shell', 'am', 'instrument',
+                    '-w',
+                    '-e', 'package', 'com.eveningoutpost.dexdrip.carbcalc',
+                    'com.eveningoutpost.dexdrip.test/androidx.test.runner.AndroidJUnitRunner'
+        }
     }
 }
 

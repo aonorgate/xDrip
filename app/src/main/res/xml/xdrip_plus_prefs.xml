@@ -843,6 +843,13 @@
                 android:key="profile_carb_absorption_default"
                 android:summary="@string/linear_model_carbs_absorbed_per_hour"
                 android:title="@string/carb_absorption_rate" />
+            <ListPreference
+                android:defaultValue="off_world"
+                android:key="carblookup_food_db_source"
+                android:entries="@array/carblookupFoodDbSourceEntries"
+                android:entryValues="@array/carblookupFoodDbSourceValues"
+                android:summary="@string/carblookup_food_db_source_summary"
+                android:title="@string/carblookup_food_db_source_title" />
             <CheckBoxPreference
                 android:defaultValue="true"
                 android:key="predict_use_momentum"

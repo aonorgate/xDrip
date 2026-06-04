@@ -133,6 +133,13 @@
     @com.google.gson.annotations.Expose *;
 }
 
+# Keep CarbLookup repository classes for instrumented tests in minified debug builds
+-keep class com.eveningoutpost.dexdrip.carblookup.db.** { *; }
+-keep class com.eveningoutpost.dexdrip.carblookup.model.** { *; }
+-keep class com.eveningoutpost.dexdrip.carblookup.MealSummary { *; }
+-keep class com.eveningoutpost.dexdrip.carblookup.api.ProductData { *; }
+-keep class com.eveningoutpost.dexdrip.carblookup.api.ProductData$* { *; }
+
 -dontnote rx.internal.util.PlatformDependent
 -dontnote rx.**
 -dontnote **rx.Observable.**

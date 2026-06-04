@@ -24,11 +24,21 @@
 -dontwarn junit.**
 
 -dontwarn com.google.devtools.build.android.desugar.runtime.**
+-dontwarn org.kxml2.io.KXmlParser,org.kxml2.io.KXmlSerializer
+-dontwarn org.kxml2.io.KXmlParser
+-dontwarn org.kxml2.io.KXmlSerializer
 
 -keep class sun.misc.** { *; }
 -dontwarn sun.misc.**
 -dontnote **rx.Observable.**
 -dontnote **
+
+# Keep carblookup classes needed for instrumented tests in debug builds
+-keep class com.eveningoutpost.dexdrip.carblookup.db.** { *; }
+-keep class com.eveningoutpost.dexdrip.carblookup.model.** { *; }
+-keep class com.eveningoutpost.dexdrip.carblookup.MealSummary { *; }
+-keep class com.eveningoutpost.dexdrip.carblookup.api.ProductData { *; }
+-keep class com.eveningoutpost.dexdrip.carblookup.api.ProductData$* { *; }
 
 -keepclassmembers class com.eveningoutpost.dexdrip.** {
    public static boolean isRunning();

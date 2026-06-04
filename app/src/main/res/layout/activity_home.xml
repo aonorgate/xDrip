@@ -221,13 +221,28 @@
                     android:paddingTop="2dp"
                     android:src="@drawable/ic_note_plus_grey600_24dp" />
 
+                <ImageButton
+                    android:id="@+id/carbLookupButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/btnNote"
+                    android:layout_below="@+id/btnNote"
+                    android:layout_marginTop="8dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/carblookup_open_carb_lookup"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="1dp"
+                    android:paddingRight="3dp"
+                    android:paddingTop="2dp"
+                    app:srcCompat="@drawable/ic_local_dining_grey600_24dp" />
+
 
                 <ImageButton
                     android:id="@+id/btnUndo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignStart="@+id/btnNote"
-                    android:layout_below="@+id/btnNote"
+                    android:layout_below="@+id/carbLookupButton"
                     android:layout_marginTop="8dp"
                     android:background="@android:color/transparent"
 
