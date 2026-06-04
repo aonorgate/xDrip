@@ -466,9 +466,9 @@ def resolveConnectedDeviceSerial(String adbPath) {
     return devices[0]
 }
 
-tasks.register('runCarbcalcFastDebugAndroidTest') {
+tasks.register('runCarblookupFastDebugAndroidTest') {
     group = 'verification'
-    description = 'Installs fastDebug app/test APKs and runs only carbcalc instrumented tests on a connected device or emulator.'
+    description = 'Installs fastDebug app/test APKs and runs only carblookup instrumented tests on a connected device or emulator.'
     dependsOn 'installFastDebug', 'installFastDebugAndroidTest'
 
     doLast {
@@ -480,7 +480,7 @@ tasks.register('runCarbcalcFastDebugAndroidTest') {
                     '-s', serial,
                     'shell', 'am', 'instrument',
                     '-w',
-                    '-e', 'package', 'com.eveningoutpost.dexdrip.carbcalc',
+                    '-e', 'package', 'com.eveningoutpost.dexdrip.carblookup',
                     'com.eveningoutpost.dexdrip.test/androidx.test.runner.AndroidJUnitRunner'
         }
     }
